@@ -1,28 +1,26 @@
 import s from './message-input.module.css';
-import {Button, Input} from "@internshipsamyrai44-ui-kit/components-lib"
+import {SendButtons} from "../send-buttons/send-buttons.tsx"
+import { useState} from "react"
 
 export const MessageInput = () => {
 
 
+  const [isInputFocused, setIsInputFocused] = useState<boolean>(false)
+
   return (
     <form onSubmit={() => {
     }} className={s.form}>
-      <Input
+      <input
         type="text"
-        value={'message'}
         onChange={(e) => (e.target.value)}
         placeholder="Type Message..."
+        onFocus={() => setIsInputFocused(true)}
+        onBlur={() => setIsInputFocused(false)}
         className={s.input}
       />
 
 
-      <Button
-        variant="ghost"
-        type="submit"
-        className={s.button}
-      >
-        Send Message
-      </Button>
+      <SendButtons isInputFocused={isInputFocused} />
     </form>
 
   );

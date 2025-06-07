@@ -20,7 +20,7 @@ export const Chat = ({contact, messages}: ChatProps) => {
           {contact.name}
         </div>
       </div>
-      <MessageList messages={messages}/>
+      <MessageList messages={messages} contact={contact}/>
       <MessageInput />
     </div>
   );

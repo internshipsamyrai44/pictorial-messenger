@@ -1,5 +1,3 @@
-'use client';
-
 import s from './contact-item.module.css'
 import type {Contact} from "../direct-widget.tsx"
 import NoAvatar from '../../assets/images/noAvatar.png'
