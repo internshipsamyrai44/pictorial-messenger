@@ -19,7 +19,6 @@ export const MessageInput = () => {
         className={s.input}
       />
 
-
       <SendButtons isInputFocused={isInputFocused} />
     </form>
 
