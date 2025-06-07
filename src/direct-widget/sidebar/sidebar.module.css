@@ -1,0 +1,9 @@
+.container {
+  width: 269px;
+  background: var(--dark-500);
+  border: 1px solid var(--dark-300);
+}
+
+.search {
+  padding: 1rem;
+}

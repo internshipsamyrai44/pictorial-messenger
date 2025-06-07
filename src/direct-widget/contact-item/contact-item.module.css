@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  height: 72px;
+  padding: 0.5rem;
+  background: var(--dark-500);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--dark-300);
+  }
+}
+
+.active {
+  background: var(--dark-300);
+}
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.main {
+  width: 100%;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.name span,
+.message {
+  color: var(--light-900);
+}
