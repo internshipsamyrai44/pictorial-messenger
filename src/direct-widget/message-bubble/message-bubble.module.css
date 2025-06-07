@@ -10,15 +10,30 @@
   justify-content: flex-start;
 }
 
+.wrapperOther {
+  display: flex;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-top: auto;
+}
+
 .bubble {
   max-width: 300px;
   padding: 10px 16px;
   border-radius: 8px;
   position: relative;
+  flex-direction: column;
+  align-items: end;
 }
 
 .bubbleOwn {
   background-color: var(--accent-900);
+  display: flex;
 }
 
 .bubbleOther {
@@ -32,7 +47,9 @@
 
 .timestampOwn {
   color: var(--accent-100);
-
+  display: flex;
+  gap: 3px;
+  align-items: center;
 }
 
 .timestampOther {
