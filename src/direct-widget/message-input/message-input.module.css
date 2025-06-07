@@ -1,0 +1,25 @@
+
+.form {
+  display: flex;
+  position: relative;
+  margin-top: auto;
+}
+
+.input {
+  width: 100%;
+  height: 49px;
+}
+
+.input [class*="input"] {
+  height: 48px;
+  border-left-width: 0;
+  
+}
+
+.button {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  font-weight: 500;
+  font-size: 16px;
+}

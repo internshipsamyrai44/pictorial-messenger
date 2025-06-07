@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+}
+
+.containerOwn {
+  justify-content: flex-end;
+}
+
+.containerOther {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 300px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.bubbleOwn {
+  background-color: var(--accent-900);
+}
+
+.bubbleOther {
+  background-color: var(--dark-300);
+}
+
+.timestamp {
+  opacity: 0.8;
+  text-align: right;
+}
+
+.timestampOwn {
+  color: var(--accent-100);
+
+}
+
+.timestampOther {
+  color: var(--light-900);
+}
