@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
-import federation from '@originjs/vite-plugin-federation';
+import {federation} from "@module-federation/vite"
 
 export default defineConfig({
   plugins: [
@@ -9,30 +9,30 @@ export default defineConfig({
       name: 'pictorial_messenger',
       filename: 'remoteEntry.js',
       exposes: {
-        './DirectWidget': './src/DirectWidget.tsx'
+        './widget': './src/widgets/messengerWidget/index.ts',
       },
       shared: {
         react: {
           requiredVersion: '^18.3.1',
+          singleton: true,
         },
         'react-dom': {
           requiredVersion: '^18.3.1',
+          singleton: true,
         }
       }
     })
   ],
-  build: {
-    target: 'esnext',
-    minify: false,
-    cssCodeSplit: false,
-    rollupOptions: {
-      external: ['react', 'react-dom']
-    }
-  },
   server: {
-    port: 4173
+    origin: 'http://localhost:3000',
+    port: 3000,
   },
+  base: 'http://localhost:3000',
   preview: {
-    port: 4173
-  }
+    port: 3000
+  },
+  build: {
+    target: 'chrome89',
+    cssCodeSplit: false,
+  },
 });
