@@ -1,0 +1,1 @@
+export { MessengerWidget as Component } from './MessengerWidget.tsx'
