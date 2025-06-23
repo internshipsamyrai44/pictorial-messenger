@@ -1,7 +1,0 @@
-.container {
-  display: flex;
-  height: 657px;
-  width: 972px;
-  background-color: var(--dark-900);
-  border: 1px solid var(--dark-100);
-}
