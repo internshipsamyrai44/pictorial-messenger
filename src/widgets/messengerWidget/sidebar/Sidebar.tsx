@@ -4,7 +4,7 @@ import { ContactItem } from '../../../entities/dialog/ui/ContactItem.tsx'
 import type { LastMessages } from '../../../shared/api/messenger.type.ts'
 
 type Props = {
-  dialogs: LastMessages[]
+  dialogs?: LastMessages[]
   onSelectDialog: (ownerId: number) => void
 }
 
@@ -14,7 +14,7 @@ export const Sidebar = ({ dialogs, onSelectDialog }: Props) => {
       <div className={s.search}>
         <Input type={'search'} placeholder={'Input search...'} />
       </div>
-      {dialogs.map(dialog => (
+      {dialogs?.map(dialog => (
         <ContactItem dialog={dialog} onClick={() => onSelectDialog(dialog.ownerId)} />
       ))}
     </div>
