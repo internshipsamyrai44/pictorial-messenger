@@ -5,12 +5,12 @@ import { SendMessageForm } from '../../../features/sendMessageForm/SendMessageFo
 import { useGetMessagesbyIdQuery } from '../../../shared/api/messagesApi'
 
 type ChatProps = {
-  ownerId: number
-  userName: string
-  avatarUrl: string
+  ownerId?: number
+  userName?: string
+  avatarUrl?: string
 }
 
-export const Chat = ({ ownerId, userName, avatarUrl }: ChatProps) => {
+export const Chat = ({ ownerId = 2729, userName = 'denis', avatarUrl = '' }: ChatProps) => {
   const { data: messages } = useGetMessagesbyIdQuery({ ownerId })
 
   return (
@@ -21,7 +21,7 @@ export const Chat = ({ ownerId, userName, avatarUrl }: ChatProps) => {
         </div>
         <div className={s.name}>{userName}</div>
       </div>
-      {messages && <MessageList messages={messages.items} avatarUrl={avatarUrl} />}
+      <MessageList messages={messages?.items} avatarUrl={avatarUrl} />
       {/* <MessageList messages={messages} contact={contact} /> */}
       <SendMessageForm />
     </div>

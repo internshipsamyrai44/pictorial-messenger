@@ -3,15 +3,15 @@ import s from './MessageList.module.css'
 import { MessageBubble } from './messageBubble/MessageBubble.tsx'
 
 type MessageListProps = {
-  messages: Messages[]
-  avatarUrl: string
+  messages?: Messages[]
+  avatarUrl?: string
 }
 
 export const MessageList = ({ messages, avatarUrl }: MessageListProps) => {
   return (
     <div className={s.container}>
-      {messages.map(message => (
-        <MessageBubble key={message.id} message={message} avatarUrl={avatarUrl} />
+      {messages?.map(message => (
+        <MessageBubble key={message.id} message={message} avatarUrl={avatarUrl ?? ""} />
       ))}
     </div>
   )
