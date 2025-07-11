@@ -4,11 +4,13 @@ import clsx from 'clsx'
 import type { LastMessages } from '../../../shared/api/messenger.type.ts'
 
 type Props = {
+  myId: number
   dialog: LastMessages
   onClick?: () => void
 }
 
-export const ContactItem = ({ dialog, onClick }: Props) => {
+export const ContactItem = ({ myId, dialog, onClick }: Props) => {
+  myId
   return (
     <div onClick={onClick} className={clsx(s.container, dialog.id === 1 && s.active)}>
       <div className={s.photo}>
