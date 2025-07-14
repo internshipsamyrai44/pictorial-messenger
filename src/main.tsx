@@ -1,11 +1,22 @@
 // import { createRoot } from 'react-dom/client'
-// import { Provider } from 'react-redux'
-// import './index.css'
-// import { MessengerWidget } from './widgets/messengerWidget/MessengerWidget.tsx'
-// import { store } from './store.ts'
+import { Provider } from 'react-redux'
+import './index.css'
+import { MessengerWidget } from './widgets/messengerWidget/MessengerWidget.tsx'
+import { store } from './store.ts'
 
-// createRoot(document.getElementById('root')!).render(
-//   <Provider store={store}>
-//     <MessengerWidget userId='123456789' />
-//   </Provider>
-// )
+type Props = {
+  user: {
+    userId: number
+    userName: string
+    email: string
+    isBlocked: boolean
+  }
+}
+
+export const App = ({ user }: Props) => {
+  return (
+    <Provider store={store}>
+      <MessengerWidget user={user} />
+    </Provider>
+  )
+}
