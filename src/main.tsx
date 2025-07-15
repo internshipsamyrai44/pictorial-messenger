@@ -1,8 +1,7 @@
-// import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import './index.css'
 import { MessengerWidget } from './widgets/messengerWidget/MessengerWidget.tsx'
-import { store } from './store.ts'
+import { messengerStore } from './store.ts'
 
 type Props = {
   user: {
@@ -15,7 +14,7 @@ type Props = {
 
 export const App = ({ user }: Props) => {
   return (
-    <Provider store={store}>
+    <Provider store={messengerStore}>
       <MessengerWidget user={user} />
     </Provider>
   )
