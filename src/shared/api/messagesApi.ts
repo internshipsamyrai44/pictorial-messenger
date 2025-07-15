@@ -35,4 +35,9 @@ export const messagesApi = messengerApi.injectEndpoints({
   }),
 })
 
-export const { useGetLastMessagesQuery, useGetMessagesbyIdQuery } = messagesApi
+export const {
+  useGetLastMessagesQuery,
+  useGetMessagesbyIdQuery,
+  useDeleteMessagesbyIdMutation,
+  useUpdateMessageStatusMutation,
+} = messagesApi

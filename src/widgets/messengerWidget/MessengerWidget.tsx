@@ -1,11 +1,21 @@
 import s from './MessengerWidget.module.css'
-import {Sidebar} from './sidebar/Sidebar.tsx'
-import {useGetLastMessagesQuery} from '../../shared/api/messagesApi.ts'
-import {Chat} from './chat/Chat.tsx'
-import {useState} from 'react'
+import { Sidebar } from './sidebar/Sidebar.tsx'
+import { useGetLastMessagesQuery } from '../../shared/api/messagesApi.ts'
+import { Chat } from './chat/Chat.tsx'
+import { useState } from 'react'
 
-export const MessengerWidget = () => {
-  const {data: messages} = useGetLastMessagesQuery()
+type Props = {
+  user: {
+    userId: number
+    userName: string
+    email: string
+    isBlocked: boolean
+  }
+}
+
+export const MessengerWidget = ({ user }: Props) => {
+  const { data: messages } = useGetLastMessagesQuery()
+
   console.log(messages, messages)
 
   const [selectedDialogId, setSelectedDialogId] = useState<number | null>(null)
@@ -14,14 +24,14 @@ export const MessengerWidget = () => {
 
   return (
     <div className={s.container}>
-
-      <Sidebar dialogs={messages?.items} onSelectDialog={setSelectedDialogId}/>
-      <Chat
-        ownerId={selectedDialog?.ownerId}
-        userName={selectedDialog?.userName}
-        avatarUrl={selectedDialog?.avatars[0].url}
-      />
-
+      <Sidebar dialogs={messages?.items} onSelectDialog={setSelectedDialogId} myId={user.userId} />
+      {selectedDialog && (
+        <Chat
+          ownerId={selectedDialog.ownerId}
+          userName={selectedDialog.userName}
+          avatarUrl={selectedDialog.avatars[0].url}
+        />
+      )}
     </div>
   )
 }

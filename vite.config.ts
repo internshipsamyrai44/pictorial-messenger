@@ -1,6 +1,6 @@
-import {defineConfig} from 'vite';
-import react from '@vitejs/plugin-react';
-import {federation} from "@module-federation/vite"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { federation } from '@module-federation/vite'
 
 export default defineConfig({
   plugins: [
@@ -9,7 +9,7 @@ export default defineConfig({
       name: 'pictorial_messenger',
       filename: 'remoteEntry.js',
       exposes: {
-        './widget': './src/widgets/messengerWidget/index.ts',
+        './widget': './src/index.ts',
       },
       shared: {
         react: {
@@ -19,9 +19,9 @@ export default defineConfig({
         'react-dom': {
           requiredVersion: '^18.3.1',
           singleton: true,
-        }
-      }
-    })
+        },
+      },
+    }),
   ],
   server: {
     origin: 'http://localhost:3000',
@@ -29,10 +29,10 @@ export default defineConfig({
   },
   base: 'http://localhost:3000',
   preview: {
-    port: 3000
+    port: 3000,
   },
   build: {
     target: 'chrome89',
     cssCodeSplit: false,
   },
-});
+})
